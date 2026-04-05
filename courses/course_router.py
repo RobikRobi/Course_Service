@@ -5,7 +5,11 @@ from sqlalchemy.orm import selectinload
 
 from database.database import get_session
 from models.CourseModel import Course
-from courses.shemas import CreateCourse, ResponseCourse, UpdateCourse
+from shemas.course_shema import CreateCourse, ResponseCourse, UpdateCourse
+from shemas.lesson_shema import ResponseLesson
+
+
+
 
 app = APIRouter(prefix="/courses", tags=["Courses"])
 
@@ -35,6 +39,23 @@ async def get_course_id(course_id: int, session: AsyncSession = Depends(get_sess
         raise HTTPException(status_code=404, detail="Course not found")
     
     return course
+
+# Получение всех уроков курса
+@app.get("/courses/{course_id}/lessons", response_model=list[ResponseLesson])
+async def get_course_lessons(course_id: int, session: AsyncSession = Depends(get_session)):
+    query = (
+        select(Course)
+        .options(selectinload(Course.lessons))
+        .where(Course.id == course_id)
+    )
+    result = await session.execute(query)
+    course = result.scalar_one_or_none()
+
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+
+    return course.lessons
+
 
 # Редактирование курса
 @app.put("/update/{course_id}", response_model=ResponseCourse)
