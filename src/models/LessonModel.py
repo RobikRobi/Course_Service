@@ -2,14 +2,14 @@ import datetime
 import typing
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, func
-from database.database import Base
-from models.CourseModel import Course
+from src.database.database import Base
+from src.models.CourseModel import Course
 
 
 
 
 if typing.TYPE_CHECKING:
-    from models.CourseModel import Course
+    from src.models.CourseModel import Course
 
 
 class Lesson(Base):

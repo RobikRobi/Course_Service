@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from binascii import Error
-from database.database import engine, Base
-from models import UserModel, CourseModel, LessonModel
+from src.database.database import engine, Base
+from src.models import UserModel
 
-from courses.course_router import app as courses_app
-from lessons.lessons_router import app as lessons_app
+from src.courses.course_router import app as courses_app
+from src.crud import app as lessons_app
+from src.models import CourseModel, LessonModel
 
 
 

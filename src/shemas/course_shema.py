@@ -1,6 +1,6 @@
 import datetime
 from pydantic import BaseModel
-from models.CourseEnum import CoursesCategory, CoursesLevel
+from src.models.CourseEnum import CoursesCategory, CoursesLevel
 
 
 

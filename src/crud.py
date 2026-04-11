@@ -3,9 +3,9 @@ from sqlalchemy import select, insert, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from database.database import get_session
-from models.LessonModel import Lesson
-from shemas.lesson_shema import CreateLesson, ResponseLesson, UpdateLesson
+from src.database.database import get_session
+from src.models.LessonModel import Lesson
+from src.shemas.lesson_shema import CreateLesson, ResponseLesson, UpdateLesson
 
 
 

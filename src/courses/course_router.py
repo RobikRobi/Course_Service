@@ -5,11 +5,11 @@ from sqlalchemy import select, insert, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from database.database import get_session
-from models.CourseModel import Course
-from shemas.course_shema import CreateCourse, ResponseCourse, UpdateCourse
-from shemas.lesson_shema import ResponseLesson
-from models.CourseEnum import CoursesCategory, CoursesLevel
+from src.database.database import get_session
+from src.models.CourseModel import Course
+from src.shemas.course_shema import CreateCourse, ResponseCourse, UpdateCourse
+from src.shemas.lesson_shema import ResponseLesson
+from src.models.CourseEnum import CoursesCategory, CoursesLevel
 
 
 

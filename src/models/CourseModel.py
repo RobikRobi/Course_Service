@@ -2,15 +2,15 @@ import typing
 import datetime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, func, Enum
-from database.database import Base
-from models.CourseEnum import CoursesCategory, CoursesLevel
+from src.database.database import Base
+from src.models.CourseEnum import CoursesCategory, CoursesLevel
 
 
 
 
 
 if typing.TYPE_CHECKING:
-    from models.LessonModel import Lesson
+    from src.models.LessonModel import Lesson
 
 
 class Course(Base):
